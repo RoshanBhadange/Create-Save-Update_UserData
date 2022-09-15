@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Update User{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>update user...</h1>
+        <br/>
+        <form action="/update/{{user_to_update.id}}" method="post">
+            <input type="text"  placeholder="username"
+                   name="nm" value="{{user_to_update.username}}">
+            <input type="submit" value="Update User" class="btn btn-secondary">
+           </form>
+           <br/><br/>
+           {% for user in users %}
+            <h4>
+                {{ user.name }}
+            </h4>
+            {% endfor %}
+    </div>
+{% endblock %}

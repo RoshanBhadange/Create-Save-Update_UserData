@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Enter User Data Here</h1>
+        <br/>
+        <form action = "/users" METHOD="POST">
+            <input type="text" placeholder="Username" name="nm">
+            <input type="submit" value="Add User" class="btn btn-secondary">
+        </form>
+        <br/><br/>
+        Available Users:
+        {% for user in users %}
+            <h4>
+                {{ user.username }} <a href="/update/{{user.id}}"
+                                       class="btn btn-outline-secondary btn-sm">Update</a>
+            </h4>
+        {% endfor %}
+    </div>
+{% endblock %}
